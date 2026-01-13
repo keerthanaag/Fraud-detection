@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Client</title>
+    <link rel="stylesheet" href="asserts/style2.css">
+    <style>/* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* Body */
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: white;
+        }
+        
+        /* Main Content */
+        .main-content {
+            width: 100%;
+            max-width: 600px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border: 2px solid #002366; /* Dark Blue Border */
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        /* App Bar Heading */
+        .app-bar h1 {
+            text-align: center;
+            font-size: 28px;
+            color: #002366; /* Dark Blue */
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        /* Form Container */
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        /* Inputbox */
+        .inputbox {
+            position: relative;
+            margin-bottom: 25px;
+        }
+        
+        .inputbox input[type="text"],
+        .inputbox input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #002366; /* Dark Blue Border */
+            border-radius: 5px;
+            outline: none;
+            background-color: #f9f9f9;
+            transition: border-color 0.4s ease;
+        }
+        
+        .inputbox input:focus {
+            border-color: #0056b3; /* Lighter Blue on Focus */
+        }
+        
+        .inputbox span {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: white;
+            padding: 0 5px;
+            font-size: 16px;
+            color: #666;
+            pointer-events: none;
+            transition: all 0.3s ease-in-out;
+            opacity: 0.7;
+        }
+        
+        .inputbox input:focus + span,
+        .inputbox input:not(:placeholder-shown) + span {
+            top: -10px;
+            font-size: 14px;
+            color: #002366; /* Dark Blue Floating Label */
+            opacity: 1;
+        }
+        
+        /* Submit Button */
+        .sub {
+            background-color: #002366; /* Dark Blue Button */
+            color: white;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .sub:hover {
+            background-color: #003b8e; /* Lighter Blue on Hover */
+        }
+        
+        .sub:active {
+            background-color: #002d73; /* Darker Blue on Click */
+        }
+        
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            font-size: 14px;
+            color: #002366; /* Dark Blue Link */
+            border-bottom: 1px solid #002366;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: #003b8e; /* Lighter Blue on Hover */
+            border-bottom-color: #003b8e;
+        }
+        
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 20px;
+                max-width: 90%;
+            }
+        
+            .app-bar h1 {
+                font-size: 22px;
+            }
+        }
+        </style>
+</head>
+<body>
+    <div class="main-content">
+        <div class="app-bar">
+            <h1>Add New Client</h1>
+        </div>
+
+        <div class="form-container">
+            <form action="/addclient" method="POST">
+                <div class="inputbox">
+                    <input type="text" name="client_name" required>
+                    <label for="client_name">Client Name</label>
+                </div>
+                <div class="inputbox">
+                    <input type="text" name="claim_id" required>
+                    <label for="claim_id">Claim ID</label>
+                </div>
+                <div class="inputbox">
+                    <input type="text" name="policy_type" required>
+                    <label for="policy_type">Policy Type</label>
+                </div>
+                <button type="submit" class="sub">Add Client</button>
+            </form>
+            <a class="back-link" href="existing_clients.html">Back to Existing Clients</a>
+        </div>
+    </div>
+</body>
+</html>
